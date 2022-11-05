@@ -5,3 +5,9 @@ resource "aws_vpc" "basic_vpc" {
     Name = var.vpc_name_tag
   }
 }
+
+module "vpc_security_group" {
+  source = "../vpc_security_group"
+  vpc_id = aws_vpc.basic_vpc.id
+  security_group_name = "default_vpc_security_group"
+}
