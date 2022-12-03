@@ -1,7 +1,9 @@
 resource "aws_security_group" "security_group_https_ssh" {
   name = var.security_group_name
   vpc_id = var.vpc_id
-
+  tags = {
+    Name = var.security_group_name
+  }
   ingress {
     description = "HTTPS"
     from_port = 443
